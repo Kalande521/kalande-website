@@ -4,6 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Welcome to KALANDE, a personal platform for technology, creativity, innovation and support.">
+
     <title>Kalande | Personal Website</title>
 
     <style>
@@ -44,7 +47,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 20px 8%;
-            background: rgba(11, 17, 32, 0.85);
+            background: rgba(11, 17, 32, 0.95);
             border-bottom: 1px solid var(--line);
             backdrop-filter: blur(10px);
         }
@@ -59,7 +62,7 @@
         nav ul {
             list-style: none;
             display: flex;
-            gap: 28px;
+            gap: 22px;
             align-items: center;
         }
 
@@ -128,6 +131,7 @@
             border-radius: 10px;
             font-weight: 700;
             transition: 0.3s ease;
+            cursor: pointer;
         }
 
         .btn-primary {
@@ -198,6 +202,108 @@
             line-height: 1.7;
         }
 
+        /* SUPPORT SECTION */
+
+        .support-options {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+            margin: 40px auto;
+        }
+
+        .support-card {
+            width: min(100%, 230px);
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            padding: 30px 20px;
+            transition: 0.3s ease;
+        }
+
+        .support-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--primary);
+        }
+
+        .support-card h3 {
+            color: var(--primary);
+            margin-bottom: 12px;
+            font-size: 1.3rem;
+        }
+
+        .support-card .amount {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .support-card button {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: #06131d;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .support-form {
+            max-width: 500px;
+            margin: 35px auto 0;
+            padding: 30px;
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 18px;
+        }
+
+        .support-form h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .support-form input {
+            width: 100%;
+            padding: 14px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border: 1px solid var(--line);
+            background: var(--bg-soft);
+            color: white;
+            font-size: 16px;
+        }
+
+        .support-form button {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            background: var(--primary);
+            color: #06131d;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .support-form button:hover {
+            background: var(--primary-dark);
+        }
+
+        #supportMessage {
+            margin-top: 18px;
+            line-height: 1.6;
+            color: var(--primary);
+        }
+
+        .payment-note {
+            color: var(--muted);
+            font-size: 0.85rem;
+            margin-top: 15px;
+            line-height: 1.6;
+        }
+
+        /* CONTACT SECTION */
+
         .contact-box {
             background: linear-gradient(180deg, rgba(19, 36, 58, 0.9), rgba(11, 17, 32, 0.9));
             border: 1px solid var(--line);
@@ -223,7 +329,7 @@
 
             nav ul {
                 gap: 14px;
-                font-size: 0.9rem;
+                font-size: 0.85rem;
                 flex-wrap: wrap;
                 justify-content: center;
             }
@@ -241,11 +347,22 @@
                 width: 100%;
                 text-align: center;
             }
+
+            section {
+                padding: 65px 6%;
+            }
+
+            .support-form {
+                padding: 22px 16px;
+            }
         }
     </style>
 </head>
 
 <body>
+
+    <!-- NAVIGATION -->
+
     <nav>
         <div class="logo">KALANDE.</div>
 
@@ -253,70 +370,243 @@
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#services">Services</a></li>
+            <li><a href="#support">Support</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
 
+    <!-- HOME -->
+
     <header class="hero" id="home">
+
         <div class="eyebrow">Creative Technologist</div>
+
         <h1>Welcome to <span>Kalande.</span></h1>
+
         <p>
-            Exploring technology, creativity, and innovation while building ideas into meaningful digital experiences.
+            Exploring technology, creativity, and innovation
+            while building ideas into meaningful digital experiences.
         </p>
+
         <div class="btn-group">
             <a href="#about" class="btn btn-primary">Discover More</a>
-            <a href="#contact" class="btn btn-secondary">Let’s Connect</a>
+
+            <a href="#contact" class="btn btn-secondary">Let's Connect</a>
         </div>
+
     </header>
 
+    <!-- ABOUT -->
+
     <section id="about">
+
         <h2>About Me</h2>
+
         <p class="intro">
-            Hello! I’m Kalande, and this is my personal space for sharing my passion for design,
-            technology, and creativity. I enjoy learning new skills, solving problems, and turning
+            Hello! I'm Kalande, and this is my personal space for
+            sharing my passion for design, technology, and creativity.
+            I enjoy learning new skills, solving problems, and turning
             ideas into useful digital experiences that leave a lasting impression.
         </p>
+
     </section>
 
+    <!-- SERVICES -->
+
     <section id="services">
+
         <h2>What I Do</h2>
 
         <div class="services">
+
             <div class="service-card">
                 <h3>Web Design</h3>
-                <p>Designing clean, modern websites that look professional and feel easy to use.</p>
+                <p>
+                    Designing clean, modern websites that look
+                    professional and feel easy to use.
+                </p>
             </div>
 
             <div class="service-card">
                 <h3>Development</h3>
-                <p>Building interactive and functional digital experiences using modern web tools.</p>
+                <p>
+                    Building interactive and functional digital
+                    experiences using modern web tools.
+                </p>
             </div>
 
             <div class="service-card">
                 <h3>Creativity</h3>
-                <p>Turning ideas into visually engaging concepts that connect with people.</p>
+                <p>
+                    Turning ideas into visually engaging concepts
+                    that connect with people.
+                </p>
             </div>
+
         </div>
+
     </section>
 
-    <section id="contact">
-        <h2>Get In Touch</h2>
-        <div class="contact-box">
-            <p class="intro" style="margin: 0;">
-                Interested in collaborating or learning more? I’d love to hear from you.
-            </p>
-            <div class="btn-group" style="margin-top: 22px;">
-                <<a href="https://wa.me/254716120994?text=Hello%20Kalande,%20I%20would%20like%20to%20get%20in%20touch."
-   class="btn"
-   target="_blank">
-    Contact Me on WhatsApp
-</a>
+    <!-- SUPPORT KALANDE -->
+
+    <section id="support">
+
+        <h2>Support KALANDE</h2>
+
+        <p class="intro">
+            Your support means a lot to me.
+            Whether you are family or a friend, every contribution
+            helps support this vision. Thank you for being part
+            of the journey.
+        </p>
+
+        <div class="support-options">
+
+            <div class="support-card">
+                <h3>Sister ❤️</h3>
+                <div class="amount">KSh 200</div>
+                <button type="button" onclick="selectSupport(200)">
+                    Support
+                </button>
             </div>
+
+            <div class="support-card">
+                <h3>Brother 🤝</h3>
+                <div class="amount">KSh 100</div>
+                <button type="button" onclick="selectSupport(100)">
+                    Support
+                </button>
+            </div>
+
+            <div class="support-card">
+                <h3>Friend 💙</h3>
+                <div class="amount">KSh 50</div>
+                <button type="button" onclick="selectSupport(50)">
+                    Support
+                </button>
+            </div>
+
         </div>
+
+        <div class="support-form">
+
+            <h3>Make Your Contribution</h3>
+
+            <p id="selectedAmount">
+                Select your contribution above.
+            </p>
+
+            <input
+                type="tel"
+                id="mpesaPhone"
+                placeholder="Enter your M-Pesa number"
+                autocomplete="tel"
+            >
+
+            <button type="button" onclick="requestSupport()">
+                Continue to M-Pesa
+            </button>
+
+            <p id="supportMessage" aria-live="polite"></p>
+
+            <p class="payment-note">
+                Contributions are voluntary. Payment processing
+                will be available once the secure M-Pesa payment
+                service is connected. Never share your M-Pesa PIN
+                with anyone.
+            </p>
+
+        </div>
+
     </section>
+
+    <!-- CONTACT -->
+
+    <section id="contact">
+
+        <h2>Get In Touch</h2>
+
+        <div class="contact-box">
+
+            <p class="intro" style="margin: 0;">
+                Interested in collaborating or learning more?
+                I'd love to hear from you.
+            </p>
+
+            <div class="btn-group" style="margin-top: 22px;">
+
+                <a
+                    href="https://wa.me/254716120994?text=Hello%20Kalande,%20I%20would%20like%20to%20get%20in%20touch."
+                    class="btn btn-primary"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Contact Me on WhatsApp
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
 
     <footer>
         <p>© 2026 Kalande. All rights reserved.</p>
     </footer>
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        let supportAmount = 0;
+
+        function selectSupport(amount) {
+
+            supportAmount = amount;
+
+            document.getElementById("selectedAmount").innerText =
+                "Your selected contribution: KSh " + amount;
+
+            document.getElementById("supportMessage").innerText = "";
+
+            document.getElementById("mpesaPhone").focus();
+
+        }
+
+        function requestSupport() {
+
+            const phone = document.getElementById("mpesaPhone").value.trim();
+
+            const message = document.getElementById("supportMessage");
+
+            if (supportAmount === 0) {
+
+                message.innerText =
+                    "Please select a contribution first.";
+
+                return;
+            }
+
+            const validPhone =
+                /^(07\d{8}|01\d{8}|2547\d{8}|2541\d{8})$/.test(phone);
+
+            if (!validPhone) {
+
+                message.innerText =
+                    "Please enter a valid Kenyan M-Pesa phone number.";
+
+                return;
+            }
+
+            message.innerText =
+                "Your contribution of KSh " + supportAmount +
+                " is selected. The M-Pesa payment service is not connected yet. No payment has been made.";
+
+        }
+
+    </script>
+
 </body>
 </html>
