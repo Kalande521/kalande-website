@@ -2,611 +2,535 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Welcome to KALANDE, a personal platform for technology, creativity, innovation and support.">
+<title>Kalande | Personal Website</title>
 
-    <meta name="description" content="Welcome to KALANDE, a personal platform for technology, creativity, innovation and support.">
+<style>
+:root {
+    --bg: #07111d;
+    --bg-soft: #101d2d;
+    --panel: #13243a;
+    --primary: #38bdf8;
+    --primary-dark: #0ea5e9;
+    --text: #eaf5ff;
+    --muted: #b6c8db;
+    --line: rgba(148,163,184,.2);
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+body {
+    font-family: Arial,sans-serif;
+    background: linear-gradient(180deg,var(--bg),#0d1827);
+    color: var(--text);
+}
+a { text-decoration: none; }
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    background: rgba(11,17,32,.95);
+    border-bottom: 1px solid var(--line);
+}
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: .08em;
+    color: var(--primary);
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 22px;
+    align-items: center;
+}
+nav a { color: var(--text); font-weight: 600; }
+nav a:hover { color: var(--primary); }
 
-    <title>Kalande | Personal Website</title>
+.hero {
+    min-height: 78vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 90px 20px 60px;
+    background: radial-gradient(circle at top,rgba(56,189,248,.18),transparent 40%);
+}
+.eyebrow {
+    display: inline-block;
+    background: rgba(56,189,248,.12);
+    border: 1px solid rgba(56,189,248,.25);
+    color: var(--primary);
+    padding: 8px 14px;
+    border-radius: 999px;
+    font-size: .8rem;
+    margin-bottom: 16px;
+}
+.hero h1 {
+    font-size: clamp(2.8rem,6vw,5rem);
+    margin-bottom: 18px;
+}
+.hero h1 span { color: var(--primary); }
+.hero p {
+    max-width: 680px;
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: var(--muted);
+}
+.btn-group {
+    display: flex;
+    gap: 16px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.btn {
+    display: inline-block;
+    padding: 14px 28px;
+    border-radius: 10px;
+    font-weight: 700;
+    cursor: pointer;
+}
+.btn-primary {
+    background: linear-gradient(135deg,var(--primary),var(--primary-dark));
+    color: #06131d;
+}
+.btn-secondary {
+    background: transparent;
+    border: 1px solid var(--line);
+    color: var(--text);
+}
+section {
+    padding: 90px 10%;
+    text-align: center;
+}
+section h2 {
+    font-size: clamp(2rem,4vw,2.8rem);
+    margin-bottom: 22px;
+    color: var(--primary);
+}
+.intro {
+    max-width: 760px;
+    margin: 0 auto;
+    font-size: 1.08rem;
+    line-height: 1.9;
+    color: var(--muted);
+}
+.services {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-top: 44px;
+}
+.service-card {
+    width: min(100%,270px);
+    background: rgba(19,36,58,.8);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 28px 22px;
+}
+.service-card h3 {
+    color: var(--primary);
+    margin-bottom: 14px;
+    font-size: 1.3rem;
+}
+.service-card p {
+    color: var(--muted);
+    line-height: 1.7;
+}
 
-    <style>
-        :root {
-            --bg: #07111d;
-            --bg-soft: #101d2d;
-            --panel: #13243a;
-            --panel-2: #1b2f46;
-            --primary: #38bdf8;
-            --primary-dark: #0ea5e9;
-            --text: #eaf5ff;
-            --muted: #b6c8db;
-            --line: rgba(148, 163, 184, 0.2);
-        }
+/* SUPPORT */
+.support-options {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin: 40px auto;
+}
+.support-card {
+    width: min(100%,230px);
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 30px 20px;
+    transition: .3s;
+}
+.support-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--primary);
+}
+.support-card h3 {
+    color: var(--primary);
+    margin-bottom: 12px;
+}
+.support-card .amount {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.support-card button,
+.quick-amounts button {
+    background: linear-gradient(135deg,var(--primary),var(--primary-dark));
+    color: #06131d;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.quick-title {
+    color: var(--muted);
+    margin: 35px 0 18px;
+}
+.quick-amounts {
+    display: grid;
+    grid-template-columns: repeat(4,minmax(0,1fr));
+    gap: 12px;
+    max-width: 480px;
+    margin: 0 auto;
+}
+.quick-amounts button {
+    padding: 14px 8px;
+    font-size: 16px;
+}
+.quick-amounts button.selected,
+.support-card button.selected {
+    outline: 3px solid white;
+    outline-offset: 3px;
+}
+.support-form {
+    max-width: 500px;
+    margin: 35px auto 0;
+    padding: 30px;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+}
+.support-form h3 {
+    color: var(--primary);
+    margin-bottom: 15px;
+}
+.support-form input {
+    width: 100%;
+    padding: 14px;
+    margin: 15px 0;
+    border-radius: 8px;
+    border: 1px solid var(--line);
+    background: var(--bg-soft);
+    color: white;
+    font-size: 16px;
+}
+.support-form button {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    background: var(--primary);
+    color: #06131d;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+}
+.support-form button:disabled {
+    opacity: .6;
+    cursor: not-allowed;
+}
+#supportMessage {
+    margin-top: 18px;
+    line-height: 1.6;
+    color: var(--primary);
+}
+.payment-note {
+    color: var(--muted);
+    font-size: .85rem;
+    margin-top: 15px;
+    line-height: 1.6;
+}
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(180deg, var(--bg) 0%, #0d1827 100%);
-            color: var(--text);
-        }
-
-        a {
-            text-decoration: none;
-        }
-
-        nav {
-            position: sticky;
-            top: 0;
-            z-index: 10;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 8%;
-            background: rgba(11, 17, 32, 0.95);
-            border-bottom: 1px solid var(--line);
-            backdrop-filter: blur(10px);
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            letter-spacing: 0.08em;
-            color: var(--primary);
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 22px;
-            align-items: center;
-        }
-
-        nav a {
-            color: var(--text);
-            font-weight: 600;
-            transition: 0.2s ease;
-        }
-
-        nav a:hover {
-            color: var(--primary);
-        }
-
-        .hero {
-            min-height: 78vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 90px 20px 60px;
-            background: radial-gradient(circle at top, rgba(56, 189, 248, 0.18), transparent 40%);
-        }
-
-        .eyebrow {
-            display: inline-block;
-            background: rgba(56, 189, 248, 0.12);
-            border: 1px solid rgba(56, 189, 248, 0.25);
-            color: var(--primary);
-            padding: 8px 14px;
-            border-radius: 999px;
-            font-size: 0.8rem;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            margin-bottom: 16px;
-        }
-
-        .hero h1 {
-            font-size: clamp(2.8rem, 6vw, 5rem);
-            margin-bottom: 18px;
-            line-height: 1.1;
-        }
-
-        .hero h1 span {
-            color: var(--primary);
-        }
-
-        .hero p {
-            max-width: 680px;
-            font-size: 1.15rem;
-            line-height: 1.8;
-            color: var(--muted);
-        }
-
-        .btn-group {
-            display: flex;
-            gap: 16px;
-            margin-top: 30px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 14px 28px;
-            border-radius: 10px;
-            font-weight: 700;
-            transition: 0.3s ease;
-            cursor: pointer;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            color: #06131d;
-            box-shadow: 0 12px 30px rgba(56, 189, 248, 0.25);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            border: 1px solid var(--line);
-            color: var(--text);
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-        }
-
-        section {
-            padding: 90px 10%;
-            text-align: center;
-        }
-
-        section h2 {
-            font-size: clamp(2rem, 4vw, 2.8rem);
-            margin-bottom: 22px;
-            color: var(--primary);
-        }
-
-        .intro {
-            max-width: 760px;
-            margin: 0 auto;
-            font-size: 1.08rem;
-            line-height: 1.9;
-            color: var(--muted);
-        }
-
-        .services {
-            display: flex;
-            justify-content: center;
-            gap: 24px;
-            flex-wrap: wrap;
-            margin-top: 44px;
-        }
-
-        .service-card {
-            width: min(100%, 270px);
-            background: rgba(19, 36, 58, 0.8);
-            border: 1px solid var(--line);
-            border-radius: 18px;
-            padding: 28px 22px;
-            transition: transform 0.25s ease, border-color 0.25s ease;
-        }
-
-        .service-card:hover {
-            transform: translateY(-8px);
-            border-color: rgba(56, 189, 248, 0.45);
-        }
-
-        .service-card h3 {
-            color: var(--primary);
-            margin-bottom: 14px;
-            font-size: 1.3rem;
-        }
-
-        .service-card p {
-            color: var(--muted);
-            line-height: 1.7;
-        }
-
-        /* SUPPORT SECTION */
-
-        .support-options {
-            display: flex;
-            justify-content: center;
-            gap: 24px;
-            flex-wrap: wrap;
-            margin: 40px auto;
-        }
-
-        .support-card {
-            width: min(100%, 230px);
-            background: var(--panel);
-            border: 1px solid var(--line);
-            border-radius: 18px;
-            padding: 30px 20px;
-            transition: 0.3s ease;
-        }
-
-        .support-card:hover {
-            transform: translateY(-6px);
-            border-color: var(--primary);
-        }
-
-        .support-card h3 {
-            color: var(--primary);
-            margin-bottom: 12px;
-            font-size: 1.3rem;
-        }
-
-        .support-card .amount {
-            font-size: 2rem;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
-
-        .support-card button {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            color: #06131d;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 8px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .support-form {
-            max-width: 500px;
-            margin: 35px auto 0;
-            padding: 30px;
-            background: var(--panel);
-            border: 1px solid var(--line);
-            border-radius: 18px;
-        }
-
-        .support-form h3 {
-            color: var(--primary);
-            margin-bottom: 15px;
-        }
-
-        .support-form input {
-            width: 100%;
-            padding: 14px;
-            margin: 15px 0;
-            border-radius: 8px;
-            border: 1px solid var(--line);
-            background: var(--bg-soft);
-            color: white;
-            font-size: 16px;
-        }
-
-        .support-form button {
-            width: 100%;
-            padding: 14px;
-            border: none;
-            border-radius: 8px;
-            background: var(--primary);
-            color: #06131d;
-            font-weight: bold;
-            font-size: 16px;
-            cursor: pointer;
-        }
-
-        .support-form button:hover {
-            background: var(--primary-dark);
-        }
-
-        #supportMessage {
-            margin-top: 18px;
-            line-height: 1.6;
-            color: var(--primary);
-        }
-
-        .payment-note {
-            color: var(--muted);
-            font-size: 0.85rem;
-            margin-top: 15px;
-            line-height: 1.6;
-        }
-
-        /* CONTACT SECTION */
-
-        .contact-box {
-            background: linear-gradient(180deg, rgba(19, 36, 58, 0.9), rgba(11, 17, 32, 0.9));
-            border: 1px solid var(--line);
-            border-radius: 18px;
-            padding: 30px 20px;
-            max-width: 700px;
-            margin: 30px auto 0;
-        }
-
-        footer {
-            background: #0b1523;
-            border-top: 1px solid var(--line);
-            padding: 28px 20px;
-            text-align: center;
-            color: var(--muted);
-        }
-
-        @media (max-width: 600px) {
-            nav {
-                flex-direction: column;
-                gap: 18px;
-            }
-
-            nav ul {
-                gap: 14px;
-                font-size: 0.85rem;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
-            .hero {
-                padding-top: 70px;
-            }
-
-            .btn-group {
-                flex-direction: column;
-                width: 100%;
-            }
-
-            .btn {
-                width: 100%;
-                text-align: center;
-            }
-
-            section {
-                padding: 65px 6%;
-            }
-
-            .support-form {
-                padding: 22px 16px;
-            }
-        }
-    </style>
+/* CONTACT */
+.contact-box {
+    background: linear-gradient(180deg,rgba(19,36,58,.9),rgba(11,17,32,.9));
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 30px 20px;
+    max-width: 700px;
+    margin: 30px auto 0;
+}
+footer {
+    background: #0b1523;
+    border-top: 1px solid var(--line);
+    padding: 28px 20px;
+    text-align: center;
+    color: var(--muted);
+}
+@media(max-width:600px) {
+    nav {
+        flex-direction: column;
+        gap: 18px;
+    }
+    nav ul {
+        gap: 14px;
+        font-size: .85rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .hero { padding-top: 70px; }
+    .btn-group {
+        flex-direction: column;
+        width: 100%;
+    }
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+    section { padding: 65px 6%; }
+    .support-form { padding: 22px 16px; }
+}
+</style>
 </head>
 
 <body>
 
-    <!-- NAVIGATION -->
+<nav>
+    <div class="logo">KALANDE.</div>
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#support">Support</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
 
-    <nav>
-        <div class="logo">KALANDE.</div>
+<header class="hero" id="home">
+    <div class="eyebrow">Creative Technologist</div>
+    <h1>Welcome to <span>Kalande.</span></h1>
+    <p>
+        Exploring technology, creativity, and innovation
+        while building ideas into meaningful digital experiences.
+    </p>
+    <div class="btn-group">
+        <a href="#about" class="btn btn-primary">Discover More</a>
+        <a href="#contact" class="btn btn-secondary">Let's Connect</a>
+    </div>
+</header>
 
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#support">Support</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+<section id="about">
+    <h2>About Me</h2>
+    <p class="intro">
+        Hello! I'm Kalande, and this is my personal space for
+        sharing my passion for design, technology, and creativity.
+        I enjoy learning new skills, solving problems, and turning
+        ideas into useful digital experiences that leave a lasting impression.
+    </p>
+</section>
 
-    <!-- HOME -->
+<section id="services">
+    <h2>What I Do</h2>
+    <div class="services">
+        <div class="service-card">
+            <h3>Web Design</h3>
+            <p>Designing clean, modern websites that look professional and feel easy to use.</p>
+        </div>
+        <div class="service-card">
+            <h3>Development</h3>
+            <p>Building interactive and functional digital experiences using modern web tools.</p>
+        </div>
+        <div class="service-card">
+            <h3>Creativity</h3>
+            <p>Turning ideas into visually engaging concepts that connect with people.</p>
+        </div>
+    </div>
+</section>
 
-    <header class="hero" id="home">
+<section id="support">
+    <h2>Support KALANDE</h2>
+    <p class="intro">
+        Your support means a lot to me.
+        Whether you are family or a friend, every contribution
+        helps support this vision. Thank you for being part
+        of the journey.
+    </p>
 
-        <div class="eyebrow">Creative Technologist</div>
+    <div class="support-options">
+        <div class="support-card">
+            <h3>Sister ❤️</h3>
+            <div class="amount">KSh 200</div>
+            <button type="button" onclick="selectSupport(200,this)">Support</button>
+        </div>
 
-        <h1>Welcome to <span>Kalande.</span></h1>
+        <div class="support-card">
+            <h3>Brother 🤝</h3>
+            <div class="amount">KSh 100</div>
+            <button type="button" onclick="selectSupport(100,this)">Support</button>
+        </div>
 
-        <p>
-            Exploring technology, creativity, and innovation
-            while building ideas into meaningful digital experiences.
+        <div class="support-card">
+            <h3>Friend 💙</h3>
+            <div class="amount">KSh 50</div>
+            <button type="button" onclick="selectSupport(50,this)">Support</button>
+        </div>
+    </div>
+
+    <h3 class="quick-title">Or choose another amount</h3>
+
+    <div class="quick-amounts">
+        <button type="button" onclick="selectSupport(5,this)">KSh 5</button>
+        <button type="button" onclick="selectSupport(10,this)">KSh 10</button>
+        <button type="button" onclick="selectSupport(15,this)">KSh 15</button>
+        <button type="button" onclick="selectSupport(20,this)">KSh 20</button>
+        <button type="button" onclick="selectSupport(25,this)">KSh 25</button>
+        <button type="button" onclick="selectSupport(30,this)">KSh 30</button>
+        <button type="button" onclick="selectSupport(35,this)">KSh 35</button>
+        <button type="button" onclick="selectSupport(40,this)">KSh 40</button>
+    </div>
+
+    <div class="support-form">
+        <h3>Make Your Contribution</h3>
+        <p id="selectedAmount">Select your contribution above.</p>
+
+        <input
+            type="tel"
+            id="mpesaPhone"
+            placeholder="Enter M-Pesa number (07... or 2547...)"
+            autocomplete="tel"
+        >
+
+        <button type="button" id="payButton" onclick="requestSupport()">
+            Continue to M-Pesa
+        </button>
+
+        <p id="supportMessage" aria-live="polite"></p>
+
+        <p class="payment-note">
+            You will receive an M-Pesa prompt on your phone.
+            Only enter your PIN in the official Safaricom prompt.
+            This website will never ask for your M-Pesa PIN.
+            Sandbox testing only: no real payment is collected.
         </p>
+    </div>
+</section>
 
-        <div class="btn-group">
-            <a href="#about" class="btn btn-primary">Discover More</a>
-
-            <a href="#contact" class="btn btn-secondary">Let's Connect</a>
-        </div>
-
-    </header>
-
-    <!-- ABOUT -->
-
-    <section id="about">
-
-        <h2>About Me</h2>
-
-        <p class="intro">
-            Hello! I'm Kalande, and this is my personal space for
-            sharing my passion for design, technology, and creativity.
-            I enjoy learning new skills, solving problems, and turning
-            ideas into useful digital experiences that leave a lasting impression.
+<section id="contact">
+    <h2>Get In Touch</h2>
+    <div class="contact-box">
+        <p class="intro" style="margin:0;">
+            Interested in collaborating or learning more?
+            I'd love to hear from you.
         </p>
-
-    </section>
-
-    <!-- SERVICES -->
-
-    <section id="services">
-
-        <h2>What I Do</h2>
-
-        <div class="services">
-
-            <div class="service-card">
-                <h3>Web Design</h3>
-                <p>
-                    Designing clean, modern websites that look
-                    professional and feel easy to use.
-                </p>
-            </div>
-
-            <div class="service-card">
-                <h3>Development</h3>
-                <p>
-                    Building interactive and functional digital
-                    experiences using modern web tools.
-                </p>
-            </div>
-
-            <div class="service-card">
-                <h3>Creativity</h3>
-                <p>
-                    Turning ideas into visually engaging concepts
-                    that connect with people.
-                </p>
-            </div>
-
+        <div class="btn-group" style="margin-top:22px;">
+            <a
+                href="https://wa.me/254716120994?text=Hello%20Kalande,%20I%20would%20like%20to%20get%20in%20touch."
+                class="btn btn-primary"
+                target="_blank"
+                rel="noopener noreferrer"
+            >Contact Me on WhatsApp</a>
         </div>
+    </div>
+</section>
 
-    </section>
+<footer>
+    <p>© 2026 Kalande. All rights reserved.</p>
+</footer>
 
-    <!-- SUPPORT KALANDE -->
+<script>
+let supportAmount = 0;
 
-    <section id="support">
+function selectSupport(amount, button) {
+    supportAmount = amount;
 
-        <h2>Support KALANDE</h2>
+    document.getElementById("selectedAmount").innerText =
+        "Your selected contribution: KSh " + amount;
 
-        <p class="intro">
-            Your support means a lot to me.
-            Whether you are family or a friend, every contribution
-            helps support this vision. Thank you for being part
-            of the journey.
-        </p>
+    document.getElementById("supportMessage").innerText = "";
 
-        <div class="support-options">
+    document.querySelectorAll(".support-options button, .quick-amounts button")
+        .forEach(item => item.classList.remove("selected"));
 
-            <div class="support-card">
-                <h3>Sister ❤️</h3>
-                <div class="amount">KSh 200</div>
-                <button type="button" onclick="selectSupport(200)">
-                    Support
-                </button>
-            </div>
+    if (button) button.classList.add("selected");
 
-            <div class="support-card">
-                <h3>Brother 🤝</h3>
-                <div class="amount">KSh 100</div>
-                <button type="button" onclick="selectSupport(100)">
-                    Support
-                </button>
-            </div>
+    document.getElementById("mpesaPhone").focus();
+}
 
-            <div class="support-card">
-                <h3>Friend 💙</h3>
-                <div class="amount">KSh 50</div>
-                <button type="button" onclick="selectSupport(50)">
-                    Support
-                </button>
-            </div>
+function normalizePhone(phone) {
+    phone = phone.replace(/\s+/g, "").replace(/^\+/, "");
 
-        </div>
+    if (/^0[17]\d{8}$/.test(phone)) {
+        return "254" + phone.substring(1);
+    }
 
-        <div class="support-form">
+    if (/^254[17]\d{8}$/.test(phone)) {
+        return phone;
+    }
 
-            <h3>Make Your Contribution</h3>
+    return null;
+}
 
-            <p id="selectedAmount">
-                Select your contribution above.
-            </p>
+async function requestSupport() {
+    const phoneInput = document.getElementById("mpesaPhone").value.trim();
+    const phone = normalizePhone(phoneInput);
+    const message = document.getElementById("supportMessage");
+    const payButton = document.getElementById("payButton");
 
-            <input
-                type="tel"
-                id="mpesaPhone"
-                placeholder="Enter your M-Pesa number"
-                autocomplete="tel"
-            >
+    if (supportAmount === 0) {
+        message.innerText = "Please select a contribution first.";
+        return;
+    }
 
-            <button type="button" onclick="requestSupport()">
-                Continue to M-Pesa
-            </button>
+    if (!phone) {
+        message.innerText = "Please enter a valid Kenyan Safaricom number.";
+        return;
+    }
 
-            <p id="supportMessage" aria-live="polite"></p>
+    payButton.disabled = true;
+    payButton.innerText = "Sending request...";
+    message.innerText = "Connecting to the payment service. Please wait.";
 
-            <p class="payment-note">
-                Contributions are voluntary. Payment processing
-                will be available once the secure M-Pesa payment
-                service is connected. Never share your M-Pesa PIN
-                with anyone.
-            </p>
+    try {
+        const response = await fetch(
+            "https://kalande-mpesa.onrender.com/api/mpesa/stkpush",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    phone: phone,
+                    amount: supportAmount
+                })
+            }
+        );
 
-        </div>
+        const data = await response.json();
 
-    </section>
-
-    <!-- CONTACT -->
-
-    <section id="contact">
-
-        <h2>Get In Touch</h2>
-
-        <div class="contact-box">
-
-            <p class="intro" style="margin: 0;">
-                Interested in collaborating or learning more?
-                I'd love to hear from you.
-            </p>
-
-            <div class="btn-group" style="margin-top: 22px;">
-
-                <a
-                    href="https://wa.me/254716120994?text=Hello%20Kalande,%20I%20would%20like%20to%20get%20in%20touch."
-                    class="btn btn-primary"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Contact Me on WhatsApp
-                </a>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- FOOTER -->
-
-    <footer>
-        <p>© 2026 Kalande. All rights reserved.</p>
-    </footer>
-
-    <!-- JAVASCRIPT -->
-
-    <script>
-
-        let supportAmount = 0;
-
-        function selectSupport(amount) {
-
-            supportAmount = amount;
-
-            document.getElementById("selectedAmount").innerText =
-                "Your selected contribution: KSh " + amount;
-
-            document.getElementById("supportMessage").innerText = "";
-
-            document.getElementById("mpesaPhone").focus();
-
+        if (!response.ok || !data.success) {
+            throw new Error(data.message || "Payment request failed.");
         }
 
-        function requestSupport() {
+        message.innerText =
+            "STK Push request sent! Check your phone and follow the official Safaricom prompt. A request being sent does not yet mean payment is complete.";
 
-            const phone = document.getElementById("mpesaPhone").value.trim();
-
-            const message = document.getElementById("supportMessage");
-
-            if (supportAmount === 0) {
-
-                message.innerText =
-                    "Please select a contribution first.";
-
-                return;
-            }
-
-            const validPhone =
-                /^(07\d{8}|01\d{8}|2547\d{8}|2541\d{8})$/.test(phone);
-
-            if (!validPhone) {
-
-                message.innerText =
-                    "Please enter a valid Kenyan M-Pesa phone number.";
-
-                return;
-            }
-
-            message.innerText =
-                "Your contribution of KSh " + supportAmount +
-                " is selected. The M-Pesa payment service is not connected yet. No payment has been made.";
-
-        }
-
-    </script>
+    } catch (error) {
+        console.error("Payment error:", error);
+        message.innerText =
+            error.message || "Unable to connect. Please try again.";
+    } finally {
+        payButton.disabled = false;
+        payButton.innerText = "Continue to M-Pesa";
+    }
+}
+</script>
 
 </body>
 </html>
